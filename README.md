@@ -1,5 +1,5 @@
-# CTNet(Contextual Transformer Networks for Action Recognition with Self-Supervision)
-Overview of Our CTNet
+# STTNet(Spatio-Temporal Self-Supervision enhanced Transformer Networks for Action Recognition)
+Overview of Our STTNet
 ![Overview of Our CTNet](https://github.com/ICME2022/CTNet/blob/main/CTNet.PNG)
 #### \R-S-R\selfsupervision\MirrorSSB\RBRF_2.py
 Overview of Our RBRF Algorithm in Self-Supervised Spatial Representation Learning Module(The Case Where The Current Batch is Selected)
@@ -10,7 +10,7 @@ Overview of Our RBRF Algorithm in Self-Supervised Spatial Representation Learnin
 #### \R-S-R\selfsupervision\shuffle\reverse_random_batch_channel.py
 ###### RBRC Algorithm
 #### \R-S-R\ops\Strongly_constrained_self_attention.py
-Overview of Our Spatio-Temporal Contextual Transformer Module
+Overview of Transformer based Spatio-temporal Aggregator
 ![Overview of Our Spatio-Temporal Contextual Transformer Module](https://github.com/ICME2022/CTNet/blob/main/Contextual%20Transformer.PNG)
 
 
