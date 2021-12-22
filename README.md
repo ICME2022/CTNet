@@ -2,7 +2,7 @@
 Overview of Our CTNet
 ![Overview of Our CTNet](https://github.com/ICME2022/CTNet/blob/main/CTNet.PNG)
 #### \R-S-R\selfsupervision\MirrorSSB\RBRF_2.py
-Overview of Our RBRF Algorithm (The Case Where The Current Batch is Selected)
+Overview of Our RBRF Algorithm in Self-Supervised Spatial Representation Learning Module(The Case Where The Current Batch is Selected)
 ![Overview of Our RBRF Algorithm in Self-Supervised Spatial Representation Learning Module(The Case Where The Current Batch is Selected)](https://github.com/ICME2022/CTNet/blob/main/RBRF.PNG)
 ###### RBRF Algorithm with 2 kinds of pseudo-labels for the final classification
 #### \R-S-R\selfsupervision\MirrorSSB\RBRF.py
