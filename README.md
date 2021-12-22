@@ -10,9 +10,10 @@ Overview of Our RBRF Algorithm (The Case Where The Current Batch is Selected)
 #### \R-S-R\selfsupervision\shuffle\reverse_random_batch_channel.py
 ###### RBRC Algorithm
 #### \R-S-R\ops\Strongly_constrained_self_attention.py
-Overview of Our Spatio-Temporal Hybrid Modeling branch
-![Overview of Our Spatio-Temporal Contextual Transformer Module](https://github.com/ICME2022/CTNet/blob/main/STHM.PNG)
-###### Spatio-Temporal Hybrid Modeling branch
+Overview of Our Spatio-Temporal Contextual Transformer Module
+![Overview of Our Spatio-Temporal Contextual Transformer Module](https://github.com/ICME2022/CTNet/blob/main/Contextual%20Transformer.PNG)
+
+
 
 # Training and Testing
 
