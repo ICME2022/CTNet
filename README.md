@@ -11,7 +11,7 @@ Overview of Our RBRF Algorithm (The Case Where The Current Batch is Selected)
 ###### RBRC Algorithm
 #### \R-S-R\ops\Strongly_constrained_self_attention.py
 Overview of Our Spatio-Temporal Hybrid Modeling branch
-![Overview of Our Spatio-Temporal Contextual Transformer Module](https://github.com/ZhangHerman/R-S-R/blob/main/STHM.PNG)
+![Overview of Our Spatio-Temporal Contextual Transformer Module](https://github.com/ICME2022/CTNet/blob/main/STHM.PNG)
 ###### Spatio-Temporal Hybrid Modeling branch
 
 # Training and Testing
