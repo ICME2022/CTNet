@@ -25,3 +25,4 @@ python -m torch.distributed.launch --master_port 17686  --nproc_per_node=1 main.
 ### Something-Something V1 Dataset
 
 python -m torch.distributed.launch --master_port 19486  --nproc_per_node=1 main.py something RGB --arch resnet50  --num_segments 16 --gd 20 --lr 0.0013 --lr_steps 35 45 55 --epochs 65 --batch-size 8 --dropout 0.8 --consensus_type=avg --eval-freq=1 -j 4
+ 
