@@ -1,6 +1,6 @@
 # CTNet(Contextual Transformer Networks for Action Recognition with Self-Supervision)
 Overview of Our CTNet
-![Overview of Our CTNet](https://github.com/ZhangHerman/R-S-R/blob/main/CTNet.PNG)
+![Overview of Our CTNet](https://github.com/ICME2022/CTNet/blob/main/CTNet.PNG)
 #### \R-S-R\selfsupervision\MirrorSSB\RBRF_2.py
 Overview of Our RBRF Algorithm (The Case Where The Current Batch is Selected)
 ![Overview of Our RBRF Algorithm in Self-Supervised Spatial Representation Learning Module(The Case Where The Current Batch is Selected)](https://github.com/ZhangHerman/R-S-R/blob/main/RBRF.PNG)
