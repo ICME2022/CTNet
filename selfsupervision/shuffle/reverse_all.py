@@ -19,7 +19,6 @@ def reverse_all(images):
     #image [B,T,C,H,W]
     B,T,C,H,W = image.size()
     result = torch.tensor([]).cuda()
-    # 1->逆序  0->正序
     labels = torch.ones(B*T).long().cuda()
     for b in range(B):
         image_B = image[b] #[T,C,H,W]
@@ -31,11 +30,6 @@ def reverse_all(images):
     return result,labels
 
 
-'''x = torch.arange(0,64.*1.*3.*3.).view(64,1,3,3).cuda()
-y,labels = reverse_all(x)
-print(y)
-print(labels)
-print(labels.shape)'''
 
 
 
