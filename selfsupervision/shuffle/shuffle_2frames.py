@@ -20,7 +20,7 @@ def randomly_create2frames_labels():
         label = torch.cat([label[1].view(1,1),label[0].view(1,1)],dim=0).view(2)
     return label #[2]
 
-def create_shuffle_images(images,label): #要求label为正序 [3,5]
+def create_shuffle_images(images,label):
     #images:[T,C,H,W]
     T,C,H,W = images.size()
     label1 = label[0].item() #3
@@ -42,15 +42,13 @@ def create_shuffled_label(T,label):#[2]
     shuffled_label = torch.tensor([])
     label1 = label[0].item()
     label2 = label[1].item()
-    #0是正序  1是非正序
+
     l = [0 for i in range(T)]
     l[label1] = 1
     l[label2] = 1
     shuffled_label = torch.tensor(l).cuda()
     return shuffled_label #[16]
 
-#上面的label不是最终要计算loss的label,最终计算loss的label
-#只有两个类别，0和1,0表示正序，1表示非正序
 def create_shuffle_images_with_batch(images):
     #images : 4D [BT,C,H,W]
     image = create5images(images).cuda() #[BT,C,H,W] -> [B,T,C,H,W]
@@ -58,8 +56,8 @@ def create_shuffle_images_with_batch(images):
     shuffled_images = torch.tensor([]).cuda()
     shuffled_labels = torch.tensor([]).cuda()
     for b in range(B):
-        image_T = image[b] #取出一个B的frame [T,C,H,W]
-        label = randomly_create2frames_labels()#正序label with shape [2]
+        image_T = image[b] 
+        label = randomly_create2frames_labels()
         shuffled_label = create_shuffled_label(T,label).float()
         image_T = create_shuffle_images(image_T,label)
         #[BT,C,H,W]
@@ -68,28 +66,3 @@ def create_shuffle_images_with_batch(images):
     shuffled_labels = shuffled_labels.long()
     return shuffled_images,shuffled_labels
 
-'''
-整体测试
-x = torch.arange(0,64.*2048.*3.*3.).view(64,2048,3,3)
-shuffled_images,shuffled_labels = create_shuffle_images_with_batch(x)
-print(shuffled_images.shape)
-print(shuffled_labels)
-'''
-
-'''
-#测试shuffle是否正确，测试通过
-#将randomly_create2frames_labels()中的range(0,16)变为(0,4)
-#因为此时[4,1,3,3]中，T=4
-x = torch.arange(0,4.*1.*3.*3.).view(4,1,3,3)
-labels = randomly_create2frames_labels()
-print(labels)
-shuffle_imageT = create_shuffle_images(x,labels)
-print(shuffle_imageT)
-'''
-
-'''
-x = torch.arange(0,16).view(4,4)
-l = randomly_create2frames_labels()
-a,b = create_shuffle_images(x,l)
-print(a,b)
-'''
