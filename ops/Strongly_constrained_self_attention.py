@@ -27,7 +27,7 @@ def create4Dimages(images):  # [B,T,C,H,W]->[BT,C,H,W]
     return image
 
 
-# 新加模块
+
 class SCSAttention(nn.Module):
 
 
@@ -39,7 +39,7 @@ class SCSAttention(nn.Module):
         self.conv1_1 = nn.Conv2d(in_channels=self.chanel_in, out_channels=self.chanel_in // (2*self.r), kernel_size=1)
         self.conv1_2 = nn.Conv2d(in_channels=self.chanel_in, out_channels=self.chanel_in // (2*self.r), kernel_size=1)
         #self.conv2 = nn.Conv2d(in_channels=self.chanel_in, out_channels=self.chanel_in // self.r, kernel_size=1)
-        '''通道压缩倍数×2,目的是进行Concat操作之后维持原有的通道压缩倍数'''
+
         self.conv2_1 = nn.Conv2d(in_channels=self.chanel_in, out_channels=self.chanel_in // (2*self.r), kernel_size=1)
         self.conv2_2 = nn.Conv2d(in_channels=self.chanel_in, out_channels=self.chanel_in // (2*self.r), kernel_size=1)
         self.conv3 = nn.Conv2d(in_channels=self.chanel_in, out_channels=self.chanel_in // self.r, kernel_size=1)
@@ -67,7 +67,7 @@ class SCSAttention(nn.Module):
         self.layer2_upgamma = nn.Parameter(torch.zeros(1))
         self.layer2_downgama_Y = nn.Parameter(torch.zeros(1))
         self.layer2_upgamma_Y = nn.Parameter(torch.zeros(1))
-        # 最后一层的1×1×1卷积核的初始化权重没有被全0初始化
+
         # DomainLayerX
         # 1th-layer
         self.layer1_downconv = nn.Conv2d(in_channels=self.chanel_in, out_channels=self.chanel_in // self.r,
@@ -108,6 +108,7 @@ class SCSAttention(nn.Module):
         self.layer2_upconv = nn.Conv3d(in_channels = self.chanel_in//self.r , out_channels = self.chanel_in , kernel_size= 1,stride = 1,padding = 0,dilation = 1,groups = 1,bias = True)
         self.layer2_downconv.weight = torch.nn.Parameter(self.layer2_downconv.weight + self.layer2_downgama*self.layer1_downconv.weight)
         self.layer2_upconv.weight = torch.nn.Parameter(self.layer2_upconv.weight + self.layer2_upgamma*self.layer1_upconv.weight)
+        ... ...
         '''
 
     def forward(self, x, domainX,domainY):
@@ -117,11 +118,10 @@ class SCSAttention(nn.Module):
         # domainY <=> RBRC.image
 
         # [64,2048,7,7]
-        # 此处的x是不带位置编码的，并且没有经过自注意力运算，是最原始的输入x
+
         temp = x
 
-        '''如果是先加PE再处理C,残差的是带位置编码,没有经过学习的feature map'''
-        '''此时，第二种方案就是先处理C，然后再添加PE，残差的是不带位置编码，没有经过学习的feature map，并且qkv单独编码'''
+
 
 
         # DomainLayer
