@@ -23,7 +23,7 @@ def create4Dimages(images):
         image = torch.cat([image,images[b]],dim=0)
     return image
 
-#处理2D图片-纵轴
+
 def mirror2DZong(image):
     #image[H,L]
     image = image.float().cuda()
@@ -34,7 +34,7 @@ def mirror2DZong(image):
         result = torch.cat([result,image[:,L-i-1]],0)
     return result.view(L,H).t() 
 
-#处理2D图片-横轴
+
 def mirror2DHeng(image):
     #image(H,L)
     image = image.float().cuda()
@@ -44,7 +44,7 @@ def mirror2DHeng(image):
         #print(image[H-j-1,:])
         result = torch.cat([result,image[H-j-1,:]],0)
     return result.view(H,L)
-#处理3D图片-纵轴
+
 def mirror3DZong(image):
     #image[C,H,L]
     image = image.float().cuda()
@@ -53,7 +53,7 @@ def mirror3DZong(image):
     for i in range(C):
         result = torch.cat([result,mirror2DZong(image[i,:,:])],0)
     return result.view(C,H,L)
-#处理3D图片-横轴
+
 def mirror3DHeng(image):
     #image[C,H,L]
     image = image.float().cuda()
@@ -66,7 +66,7 @@ def mirror3DHeng(image):
 def mirror(images,labels):
     #images[T,C,H,W]
     #labels[T]
-    # 0:Zong   1:横 
+
     T,C,H,W = images.size()
     result = torch.Tensor().cuda()
     for l in range(len(labels)):
@@ -81,18 +81,18 @@ def mirror(images,labels):
 def getLabel():
     T = 16
     for t in range(T):
-     #得到每个B内T帧的label
+
         label_T = [random.randint(0,1) for _ in range(T)]
     return torch.tensor(label_T).float().cuda()
 
-#核心代码，结构1：无通道变换的直接翻转
+
 def Mirror_Self_Supervision(images):
     #images [BT,C,H,W]
     Bt,C,H,W = images.size()
     T = 16
     B = Bt//T
     label_domain = (0,1)
-    #保存最终的结果image
+
     image = create5Dimages(images) #[B,T,C,H,W]
     mirrorImage = torch.Tensor().cuda()
     mirrorLabel = torch.Tensor().cuda()
@@ -114,53 +114,4 @@ def Mirror_Self_Supervision(images):
     
 
 
-'''x = torch.arange(0,4*3*6).view(4,3,6)
-print('原始的x=\n',x)'''
 
-'''#测试处理2D图片——纵轴
-print(mirror2DZong(x))'''
-
-'''#测试处理2D图片——横轴
-print(mirror2DHeng(x))'''
-
-'''#测试处理3D图片——纵轴
-print(mirror3DZong(x))'''
-
-'''#测试处理3D图片——横轴
-print(mirror3DHeng(x))'''
-
-'''T = 16
-label_domain = (0,1)
-label_T = []
-print(label_T)
-for i in range(T):
-    label_T = [random.randint(0,1) for _ in range(T)]
-print(label_T)
-
-images = torch.arange(0,16*3*3*3).view(16,3,3,3)
-print(mirror(images,label_T))'''
-
-
-
-'''x = torch.arange(0,4*16*2048*7*7).float().view(64,2048,7,7).cuda()
-y = create5Dimages(x)
-B,T,C,H,W = y.size()
-print(B,T,C,H,W)'''
-
-#image = torch.arange(0,64*3*3*3).view(4,16,3,3,3)
-'''mirrorLabel = torch.Tensor()
-label_T = getLabel()
-for i in range(4):
-    mirrorLabel = torch.cat([mirrorLabel,label_T],0)
-print(mirrorLabel)
-print(mirrorLabel.shape)'''
-
-
-#主要测试代码
-'''x = torch.arange(0,4*16*3*3*3).view(4*16,3,3,3)
-mirrorImage,mirrorLabel = Mirror_Self_Supervision(x)
-print('原始输入图片=\n',x)
-print('mirrorImage=\n',mirrorImage)
-print(mirrorImage.shape)
-print('mirrorLabel=\n',mirrorLabel)
-print(mirrorLabel.shape)'''
