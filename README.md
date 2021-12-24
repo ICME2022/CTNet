@@ -30,6 +30,27 @@ dataset_root/frames/video_N num_frames label_N
 
 iii.Add the information to ops/dataset_configs.py
 
+# Prerequisites
+The code is built with following libraries:
+ · Python 3.6 or higher
+ · PyTorch 1.4 or higher
+ · Torchvision
+ · TensorboardX
+ ```pip install tensorboardX```
+ · tqdm
+ ```pip install tqdm```
+ · scikit-learn
+ ```pip install -U scikit-learn```
+ · ffmpeg
+ ```
+ conda config --add channels conda-forge
+ conda install ffmpeg
+ pip install ffmpy
+ ```
+ · decord
+ ```pip install decord```
+
+
 # Training and Testing
 
 ### HMDB51 and UCF101 Datasets
