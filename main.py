@@ -1,7 +1,4 @@
-# Code for "TDN: Temporal Difference Networks for Efficient Action Recognition"
-# arXiv: 2012.10071
-# Limin Wang, Zhan Tong, Bin Ji, Gangshan Wu
-# tongzhan@smail.nju.edu.cn
+
 
 import os
 import time
@@ -45,7 +42,7 @@ def main():
 
 
     full_arch_name = args.arch
-    args.store_name = '_'.join(['R-S-R_', args.dataset, args.modality, full_arch_name, args.consensus_type, 'segment%d' % args.num_segments, 'e{}'.format(args.epochs)])
+    args.store_name = '_'.join(['STTNet_', args.dataset, args.modality, full_arch_name, args.consensus_type, 'segment%d' % args.num_segments, 'e{}'.format(args.epochs)])
     if args.pretrain != 'imagenet':
         args.store_name += '_{}'.format(args.pretrain)
     if args.dense_sample:
@@ -58,7 +55,7 @@ def main():
 
     logger = setup_logger(output=os.path.join(args.root_log, args.store_name),
                           distributed_rank=dist.get_rank(),
-                          name=f'R-S-R')
+                          name=f'STTNet')
     logger.info('storing name: ' + args.store_name)
 
     model = TSN(num_class,
@@ -79,7 +76,7 @@ def main():
     policies = model.get_optim_policies()
     for group in policies:
         logger.info(
-            ('[R-S-R-{}]group: {} has {} params, lr_mult: {}, decay_mult: {}'.
+            ('[STTNet-{}]group: {} has {} params, lr_mult: {}, decay_mult: {}'.
              format(args.arch, group['name'], len(group['params']),
                     group['lr_mult'], group['decay_mult'])))
 
