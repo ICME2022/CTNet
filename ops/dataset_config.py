@@ -1,7 +1,4 @@
-# Code for "TDN: Temporal Difference Networks for Efficient Action Recognition"
-# arXiv: 2012.10071
-# Limin Wang, Zhan Tong, Bin Ji, Gangshan Wu
-# tongzhan@smail.nju.edu.cn
+
 
 import os
 ROOT_DATASET = '/ssd/video/' 
@@ -10,13 +7,13 @@ def return_ucf101(modality):
     filename_categories = 101
     if modality == 'RGB':
         root_data = "/"#ROOT_DATASET
-        filename_imglist_train = "/raid/zyk/ucf101/ucf101/ucf101_train_split_1_rawframes.txt"
-        filename_imglist_val = "/raid/zyk/ucf101/ucf101/ucf101_val_split_1_videos.txt"
+        filename_imglist_train = "your_path/ucf101_train_split_1_rawframes.txt"
+        filename_imglist_val = "your_path/ucf101_val_split_1_videos.txt"
         prefix = 'img_{:05d}.jpg'
     elif modality == 'Flow':
         root_data = ROOT_DATASET + 'UCF101/jpg'
-        filename_imglist_train = 'file_list/ucf101_flow_train_split_3.txt'
-        filename_imglist_val = 'file_list/ucf101_flow_val_split_3.txt'
+        filename_imglist_train = 'file_list/ucf101_flow_train_split_1.txt'
+        filename_imglist_val = 'file_list/ucf101_flow_val_split_1.txt'
         prefix = 'flow_{}_{:05d}.jpg'
     else:
         raise NotImplementedError('no such modality:' + modality)
@@ -27,8 +24,8 @@ def return_hmdb51(modality):
     filename_categories = 51
     if modality == 'RGB':
         root_data = "/"
-        filename_imglist_train = "/raid/xupeng/hmdb51/hmdb51_train_split_2_rawframes.txt"
-        filename_imglist_val = "/raid/xupeng/hmdb51/hmdb51_val_split_2_rawframes.txt"
+        filename_imglist_train = "your_path/hmdb51_train_split_1_rawframes.txt"
+        filename_imglist_val = "your_path/hmdb51_val_split_1_rawframes.txt"
         prefix = 'img_{:05d}.jpg'
     elif modality == 'Flow':
         root_data = ROOT_DATASET + 'HMDB51/images'
@@ -44,8 +41,8 @@ def return_something(modality):
     filename_categories = 174
     if modality == 'RGB' or modality== 'RGBDiff':
         root_data = "/" 
-        filename_imglist_train = "/home/xupeng/R-S-R/data/train_videofolder.txt"
-        filename_imglist_val = "/home/xupeng/R-S-R/data/val_videofolder.txt"
+        filename_imglist_train = "your_path/train_videofolder.txt"
+        filename_imglist_val = "your_path/val_videofolder.txt"
         prefix = '{:05d}.jpg'
     elif modality == 'Flow':
         root_data = ROOT_DATASET + '/your_path_to/something/v1/20bn-something-something-v1-flow'
