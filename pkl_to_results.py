@@ -1,7 +1,3 @@
-# Code for "TDN: Temporal Difference Networks for Efficient Action Recognition"
-# arXiv: 2012.10071
-# Limin Wang, Zhan Tong, Bin Ji, Gangshan Wu
-# tongzhan@smail.nju.edu.cn
 
 import argparse
 import time
@@ -32,7 +28,7 @@ def accuracy(output, target, topk=(1,)):
     return res
 
 
-parser = argparse.ArgumentParser(description="TDN testing on the full validation set")
+parser = argparse.ArgumentParser(description="STTNet testing on the full validation set")
 parser.add_argument('--test_crops', type=int, default=1)
 parser.add_argument('--num_clips', type=int, default=10)
 parser.add_argument('--multi_segments',type=bool,default=False)
