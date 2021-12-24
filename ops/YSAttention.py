@@ -4,11 +4,11 @@ import ops.create5Dimages as create5D
 import ops.create4Dimages as create4D
 
 
-#新加模块
+
 class Self_Attn(nn.Module):
     """Self attention Layer"""
     #(2048,4,16,7,7,4096)  （2048,4,16,7,7,256）
-    #调用：self.Attention = attention.Self_Attn(2048,4,16,7,7,256)
+
 
     def __init__(self,in_dim,batch_size,num_frames,width,height,channels):
         super(Self_Attn,self).__init__()
@@ -34,10 +34,9 @@ class Self_Attn(nn.Module):
 
     def forward(self,x):
         #[64,2048,7,7]
-        #此处的x是不带位置编码的，并且没有经过自注意力运算，是最原始的输入x
+
         temp = x 
-        '''如果是先加PE再处理C,残差的是带位置编码,没有经过学习的feature map'''
-        '''此时，第二种方案就是先处理C，然后再添加PE，残差的是不带位置编码，没有经过学习的feature map，并且qkv单独编码'''
+
 
 
 
