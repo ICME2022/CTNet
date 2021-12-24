@@ -1,7 +1,7 @@
 import os
 
 if __name__ == '__main__':
-    dataset_name = '/raid/ZYK-something-v1/something-v1/something-something-v1'  # 'jester-v1'
+    dataset_name = 'your_path/something-v1/something-something-v1'  # 'jester-v1'
     with open('%s-labels.csv' % dataset_name) as f:
         lines = f.readlines()
     categories = []
