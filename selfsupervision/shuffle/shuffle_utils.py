@@ -42,15 +42,11 @@ def randomly_shuffle(images,labels):
     shuffle_images = torch.Tensor([])
     for b in range(B):
         result_T = torch.Tensor([])
-        #取出一个B的帧，也就是T张图片
         image = x[b] #[16,1,3,3]
-        #得到与之对应的标签
         #get B label , and shape of label is [16]
         label = labels[b]
         #print(label)
         for t in range(T):
-            #根据标签进行shuffle
-            #将该B中的T张图片存到list中
             result_T = torch.cat([result_T,image[label[t]]],dim = 0)
         shuffle_images = torch.cat([shuffle_images,result_T],dim = 0)
     
@@ -60,8 +56,7 @@ ima,lab = randomly_shuffle(images,labels)
 print(lab)
 print(ima)  
 
-#让FC去预测该帧在它所在的B中的T张图片中，在shuffle之前的位置，即原来的位置
-#也就是labels中每一位上的数字，(共B*T)如第0个位置可能是
+
     
 
         
