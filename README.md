@@ -84,3 +84,4 @@ CUDA_VISIBLE_DEVICES=0 python3 test_models_center_crop.py something \
 --archs='resnet50' --weights <your_checkpoint_path>  --test_segments=16  \
 --test_crops=1 --batch_size=8  --gpus 0 --output_dir <your_pkl_path> -j 4 --clip_index=0
 ```
+ 
