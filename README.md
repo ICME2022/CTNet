@@ -64,8 +64,7 @@ The code is built with following libraries:
  ```pip install decord```
 
 
-# Training and Testing
-
+## Training
 ### HMDB51 and UCF101 Datasets
 
 python -m torch.distributed.launch --master_port 17686  --nproc_per_node=1 main.py Dataset_Name RGB --arch resnet50  --num_segments 16 --gd 20 --lr 0.00015 --lr_steps 25 35 --epochs 50 --batch-size 4 --dropout 0.8 --consensus_type=avg --eval-freq=1 -j 4 --tune_from='your_path/Kinetics.pth.tar'
@@ -73,4 +72,9 @@ python -m torch.distributed.launch --master_port 17686  --nproc_per_node=1 main.
 ### Something-Something V1 Dataset
 
 python -m torch.distributed.launch --master_port 19486  --nproc_per_node=1 main.py something RGB --arch resnet50  --num_segments 16 --gd 20 --lr 0.0013 --lr_steps 35 45 55 --epochs 65 --batch-size 8 --dropout 0.8 --consensus_type=avg --eval-freq=1 -j 4
- 
+
+## Testing
+
+CUDA_VISIBLE_DEVICES=0 python3 test_models_center_crop.py something \
+--archs='resnet50' --weights <your_checkpoint_path>  --test_segments=8  \
+--test_crops=1 --batch_size=16  --gpus 0 --output_dir <your_pkl_path> -j 4 --clip_index=0
