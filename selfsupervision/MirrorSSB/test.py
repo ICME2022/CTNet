@@ -1,26 +1,5 @@
 import torch
 
-#images = torch.arange(0,3*3*3).view(3,3,3)
-#print(images)
-#print(images[:,:,0])
-'''a = torch.arange(0,9).view(3,3)
-print(a)
-print(a[:,0])
-#实现交换2D图片的列(镜像翻转列)
-index = [2,1,0]
-print(a[:,index])'''
-
-#核心代码
-'''a = torch.arange(0,16*27).view(16,3,3,3)
-print(a)
-index = [2,1,0]
-print(a[:,:,index])
-a = list(range(0,16,1))
-a.reverse()
-print(a)
-'''
-
-
 
 
 def TmirrorZong(image):
