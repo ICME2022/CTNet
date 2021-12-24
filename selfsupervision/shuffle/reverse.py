@@ -28,12 +28,11 @@ def reverse(images):
     result = torch.tensor([]).cuda()
     #print(labels)
     #print(labels.shape)
-    #1 -> 逆序 0 -> 正序
     for b in range(B):
         image_B = image[b] #[T,C,H,W]
         if label[b]==0:
             result = torch.cat([result,image_B],dim=0)
-        elif label[b]==1:#当前B的T帧进行逆序处理
+        elif label[b]==1:
             image_T = torch.tensor([]).cuda()
             for t in range(T):
                 image_T = torch.cat([image_T,image_B[T-t-1].view(1,C,H,W)])
