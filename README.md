@@ -1,6 +1,6 @@
 # STTNet(Spatio-Temporal Self-Supervision enhanced Transformer Networks for Action Recognition)
 Overview of Our STTNet
-![Overview of Our CTNet](https://github.com/ICME2022/STTNet/blob/main/STTNet.PNG)
+![Overview of Our CTNet](https://github.com/ICME2022/STTNet/blob/main/STTNet_main.PNG)
 #### \R-S-R\selfsupervision\MirrorSSB\RBRF_2.py
 Overview of Our RBRF Algorithm in Self-Supervised Spatial Representation Learning Module(The Case Where The Current Batch is Selected)
 ![Overview of Our RBRF Algorithm in Self-Supervised Spatial Representation Learning Module(The Case Where The Current Batch is Selected)](https://github.com/ICME2022/CTNet/blob/main/RBRF.PNG)
