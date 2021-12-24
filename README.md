@@ -41,12 +41,15 @@ The code is built with following libraries:
  · TensorboardX
  
  ```pip install tensorboardX```
+ 
  · tqdm
  
  ```pip install tqdm```
+ 
  · scikit-learn
  
  ```pip install -U scikit-learn```
+ 
  · ffmpeg
  
  ```
