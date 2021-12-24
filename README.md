@@ -14,7 +14,7 @@ Details of Our Transformer based Spatio-temporal Aggregator
 ![Details of Our Transformer based Spatio-temporal Aggregator](https://github.com/ICME2022/STTNet/blob/main/DT.PNG)
 
 # Data Preparation
-We have successfully trained STTNet on HMDB51, UCF101, Something-Something-V1 with this codebase (Pre-trained Models are on ![](https:https://drive.google.com/drive/folders/18JslcTMTrjXJPn-I7Dnof1GKj4J6cOE1)).
+We have successfully trained STTNet on HMDB51, UCF101, Something-Something-V1 with this codebase (Pre-trained Models are on https:https://drive.google.com/drive/folders/18JslcTMTrjXJPn-I7Dnof1GKj4J6cOE1).
 
 
 # Training and Testing
