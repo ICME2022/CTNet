@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 import random
 
-#首先将4D图片转换为5D图片
+
 def create5images(images):
     # images : 4D tensor with shape [BT,C,H,W]
     T = 16
@@ -23,23 +23,13 @@ def reverse_random_channels(image):
     B,T,C,H,W = images.size() #4,16,2048,7,7
     #B_label = [random.randint(0,1) for _ in range(B)]
 
-    '''
-    print(len(B_label))
-    print(type(B))
-    print(B_label)
-    '''
-    '''0不动  1动'''
-
-    #反传的是1/K个channels的feature map
     result_ = torch.tensor([]).cuda()
     result = torch.tensor([]).cuda()
     for b in range(B):
-        #每个B所取到的channels是不同的，所以反传时，对于每个B，反传的feature map所来的channels是不同的
-        cha = random.randint(0,C-1) #取出该B所要用的Channels #[4,16,2048,7,7]
-        #print("cha=",cha)
-        #该B所对应的T帧的第C个通道
+        cha = random.randint(0,C-1) 
+
         images_B = images[b,:,cha,:,:].view(1,T,1,H,W)
-        #用于保存该B下，T帧的逆序结果
+
         images_T = torch.tensor([]).cuda()
         for t in range(T): #[0,...,15]
             images_T = torch.cat([images_T,images_B[:,T-t-1,:,:,:].view(1,1,H,W)],dim=0)
@@ -59,14 +49,3 @@ def reverse_random_channels(image):
 
     
 
-
-
-
-
-
-
-
-'''
-images = torch.arange(0,64.*2048.*7.*7.).view(64,2048,7,7).cuda()
-reverse_random_channels(images)
-'''
