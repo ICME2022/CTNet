@@ -1,7 +1,4 @@
-# Code for "TDN: Temporal Difference Networks for Efficient Action Recognition"
-# arXiv: 2012.10071
-# Limin Wang, Zhan Tong, Bin Ji, Gangshan Wu
-# tongzhan@smail.nju.edu.cn
+
 
 from torch.optim.lr_scheduler import _LRScheduler, MultiStepLR, CosineAnnealingLR
 
