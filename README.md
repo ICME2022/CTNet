@@ -13,6 +13,10 @@ Overview of Our RBRF Algorithm in Self-Supervised Spatial Representation Learnin
 Details of Our Transformer based Spatio-temporal Aggregator
 ![Details of Our Transformer based Spatio-temporal Aggregator](https://github.com/ICME2022/STTNet/blob/main/DT.PNG)
 
+# Data Preparation
+
+
+
 # Training and Testing
 
 ### HMDB51 and UCF101 Datasets
