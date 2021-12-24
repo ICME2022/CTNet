@@ -5,8 +5,8 @@ import torch
 def arraytostring(array):
     #array[51,51]
     result = '['
-    x = array.shape[0]#获取行数
-    y = array.shape[1]#获取列数
+    x = array.shape[0]
+    y = array.shape[1]
     for i in range(x):
         result = result+'['
         for j in range(y):
@@ -56,30 +56,5 @@ def indices2string(indices):
     return result 
               
 
-'''
-a = np.array([[[[ 0,  1],
-          [ 2,  3]],
-
-         [[ 4,  5],
-          [ 6,  7]]],
 
 
-        [[[ 8,  9],
-          [10, 11]],
-
-         [[12, 13],
-          [14, 15]]]])'''
-'''
-[[[[0,1],[2,3]],[[4,5],[6,7]]],[[[8,9],[10,11]],[[12,13],[14,15]]]]
-'''
-
-
-#file = r'fm.txt'
-'''with open(file,"a") as f:
-    f.write(str+'\n')'''
-
-
-'''       print('x.shape=\n',x.shape)
-        c = torch.tensor(x,requires_grad=False)
-        b = c.cpu()
-        print(b[0,0,:,:])'''
