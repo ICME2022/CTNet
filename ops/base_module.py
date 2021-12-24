@@ -1,7 +1,4 @@
-# Code for "TDN: Temporal Difference Networks for Efficient Action Recognition"
-# arXiv: 2012.10071
-# Limin Wang, Zhan Tong, Bin Ji, Gangshan Wu
-# tongzhan@smail.nju.edu.cn
+# Code for STTNet
 
 from __future__ import print_function, division, absolute_import
 import torch
