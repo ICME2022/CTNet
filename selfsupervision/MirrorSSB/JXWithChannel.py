@@ -39,12 +39,12 @@ def TmirrorHeng(image):
     return image[:,index]
 
 
-#0纵1横，所有的都进行C的变换
+
 
 def mirror(images,labels):
     #images[T,C,H,W]
     #labels[T]
-    # 0:Zong   1:横 
+
     T,C,H,W = images.size()
     result = torch.Tensor().cuda()
     for l in range(len(labels)):
@@ -74,18 +74,18 @@ def mirror(images,labels):
 def getLabel():
     T = 16
     for t in range(T):
-     #得到每个B内T帧的label
+
         label_T = [random.randint(0,1) for _ in range(T)]
     return torch.tensor(label_T).float().cuda()
 
-#核心代码，结构1：无通道变换的直接翻转
+
 def Mirror_Self_Supervision(images):
     #images [BT,C,H,W]
     Bt,C,H,W = images.size()
     T = 16
     B = Bt//T
     label_domain = (0,1)
-    #保存最终的结果image
+
     image = create5Dimages(images) #[B,T,C,H,W]
     mirrorImage = torch.Tensor().cuda()
     mirrorLabel = torch.Tensor().cuda()
@@ -107,15 +107,3 @@ def Mirror_Self_Supervision(images):
 
 
 
-'''
-a = torch.arange(36).view(4,3,3).float()
-C,H,W = a.size()
-print(a)
-
-b = torch.tensor([]).float()
-for i in range(C):
-    b = torch.cat([b,a[C-i-1]],dim=0)
-
-b = b.view(4,3,3)
-print(b)
-'''
