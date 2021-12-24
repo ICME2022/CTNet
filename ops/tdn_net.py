@@ -1,7 +1,4 @@
-# Code for "TDN: Temporal Difference Networks for Efficient Action Recognition"
-# arXiv: 2012.10071
-# Limin Wang, Zhan Tong, Bin Ji, Gangshan Wu
-# tongzhan@smail.nju.edu.cn
+
 
 import torch
 import torch.nn as nn
@@ -12,31 +9,11 @@ from ops.base_module import *
 import torch.nn.functional as F
 import random
 
-#import selfsupervision.rotation.utils as ut
-#import selfsupervision.shuffle.shuffle_2frames as shu
-#import selfsupervision.shuffle.reverse as rev
-#import selfsupervision.shuffle.reverse as rev
-#import selfsupervision.shuffle.reverse_random_channel as rev
-'''import selfsupervision.shuffle.reverse_random_batch_channel as revbc'''
-
-#mport ops.Attention as attention
-'''import ops.YSAttention as attention'''
-#import ops.Attention_Batchsize8 as attention
-
-'''import selfsupervision.MirrorSSB.DCNonChannel as DCnC'''
-
-#Before RBRF Mirror
-#import selfsupervision.MirrorSSB.JXNonChannel as JXnC
-#import selfsupervision.MirrorSSB.JXWithChannel as JXWC
-
-#RBRF
-#import selfsupervision.MirrorSSB.RBRF as rbrf
 import selfsupervision.MirrorSSB.RBRF_2 as rbrf
 import selfsupervision.shuffle.reverse_random_batch_channel as rbrc
-#import ops.DomainAttention_K as domainattention
-#import ops.DomainAttention_K as domainattention
+
 import ops.Strongly_constrained_self_attention as sattention
-#import ops.Multi_head_self_attention as mhattention
+
 
 class TDN_Net(nn.Module):
 
@@ -65,7 +42,7 @@ class TDN_Net(nn.Module):
         self.layer4_bak = nn.Sequential(*list(resnet_model.children())[7])
 
         self.avgpool = nn.AvgPool2d(7, stride=1)
-        #self.avgpool_multi = nn.AvgPool2d(7, stride=1)
+
 
         self.avg_diff = nn.AvgPool2d(kernel_size=2,stride=2)
         self.fc = list(resnet_model.children())[8]
@@ -76,18 +53,16 @@ class TDN_Net(nn.Module):
         self.fc_shuffle_rbrf = nn.Linear(2048,2048,bias = True)
         self.fc_shuffle_rbrc = nn.Linear(1,2048,bias = True)
 
-        #self.fc_multi = nn.Linear(2048,2048,bias = True)
+
 
 
         self.avgpool_rbrf = nn.AvgPool2d(7,stride=1)
         self.avgpool_rbrc = nn.AvgPool2d(7,stride=1)
-        #self.domainattention = domainattention.Self_Attn(2048,4,16,7,7,256)
-        '''self.Attention = attention.Self_Attn(2048,4,16,7,7,128)'''
-        #self.Attention = attention.Self_Attn(2048,8,16,7,7,256)
+
         
         self.scsattention = sattention.SCSAttention(2048,4,8,7,7,256)
         
-        #self.multi_head_attention = mhattention.Self_Attn(2048,4,16,7,7,256)
+
 
 
 
