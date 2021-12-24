@@ -1,7 +1,3 @@
-# Code for "TDN: Temporal Difference Networks for Efficient Action Recognition"
-# arXiv: 2012.10071
-# Limin Wang, Zhan Tong, Bin Ji, Gangshan Wu
-# tongzhan@smail.nju.edu.cn
 
 import argparse
 parser = argparse.ArgumentParser(
@@ -64,8 +60,8 @@ parser.add_argument('--start-epoch', default=0, type=int, metavar='N',
                     help='manual epoch number (useful on restarts)')
 parser.add_argument('--gpus', nargs='+', type=int, default=None)
 parser.add_argument('--flow_prefix', default="", type=str)
-parser.add_argument('--root_model', type=str, default='/raid/zyk/R-S-R/checkpoint')
-parser.add_argument('--root_log', type=str, default='/raid/zyk/R-S-R/log')
+parser.add_argument('--root_model', type=str, default='checkpoint')
+parser.add_argument('--root_log', type=str, default='log')
 parser.add_argument('--dense_sample', default=False, action="store_true",
                     help='use dense sample for video dataset')
 parser.add_argument("--local_rank", type=int,
