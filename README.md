@@ -33,7 +33,6 @@ iii.Add the information to ops/dataset_configs.py
 # Prerequisites
 The code is built with following libraries:
  · Python 3.6 or higher
- 
  · PyTorch 1.4 or higher
  
  · Torchvision
