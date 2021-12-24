@@ -14,8 +14,21 @@ Details of Our Transformer based Spatio-temporal Aggregator
 ![Details of Our Transformer based Spatio-temporal Aggregator](https://github.com/ICME2022/STTNet/blob/main/DT.PNG)
 
 # Data Preparation
-We have successfully trained STTNet on HMDB51, UCF101, Something-Something-V1 with this codebase (Pre-trained Models are on https://drive.google.com/drive/folders/18JslcTMTrjXJPn-I7Dnof1GKj4J6cOE1).
+We have successfully trained STTNet on [HMDB51](https://serre-lab.clps.brown.edu/resource/hmdb-a-large-human-motion-database/), [UCF101](https://www.crcv.ucf.edu/data/UCF101.php), [Something-Something-V1](https://20bn.com/datasets/something-something/v1) with this codebase (Pre-trained Models are on https://drive.google.com/drive/folders/18JslcTMTrjXJPn-I7Dnof1GKj4J6cOE1).
 
+## The processing of HMDB51, UCF101 and Something-Something-V1 can be summarized into 3 steps:
+i.Extract frames from videos(you can use ffmpeg to get frames from video)
+ii.Generate annotations needed for dataloader ("<path_to_frames> <frames_num> <video_class>" in annotations) The annotation usually includes train.txt and val.txt. 
+The format of *.txt file is like:
+```
+dataset_root/frames/video_1 num_frames label_1
+dataset_root/frames/video_2 num_frames label_2
+dataset_root/frames/video_3 num_frames label_3
+...
+dataset_root/frames/video_N num_frames label_N
+```
+
+iii.Add the information to ops/dataset_configs.py
 
 # Training and Testing
 
