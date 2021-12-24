@@ -10,9 +10,6 @@ Overview of Our RBRF Algorithm in Self-Supervised Spatial Representation Learnin
 #### \R-S-R\selfsupervision\shuffle\reverse_random_batch_channel.py
 ###### RBRC Algorithm
 #### \R-S-R\ops\Strongly_constrained_self_attention.py
-Overview of Our Transformer based Spatio-temporal Aggregator
-![Overview of Our Transformer based Spatio-temporal Aggregator](https://github.com/ICME2022/CTNet/blob/main/Contextual%20Transformer.PNG)
-
 Details of Our Transformer based Spatio-temporal Aggregator
 ![Details of Our Transformer based Spatio-temporal Aggregator](https://github.com/ICME2022/STTNet/blob/main/DT.PNG)
 
