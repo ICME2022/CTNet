@@ -31,7 +31,7 @@ dataset_root/frames/video_N num_frames label_N
 iii.Add the information to ops/dataset_configs.py
 
 # Prerequisites
-The code is built with following libraries:
+The code or our STTNet is built with following libraries:
 
  · Python 3.6 or higher
  
