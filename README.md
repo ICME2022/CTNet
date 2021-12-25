@@ -17,6 +17,7 @@ We have successfully trained STTNet on [HMDB51](https://serre-lab.clps.brown.edu
 
 ## The processing of HMDB51, UCF101 and Something-Something-V1 can be summarized into 3 steps:
 i.Extract frames from videos(you can use ffmpeg to get frames from video)
+
 ii.Generate annotations needed for dataloader ("<path_to_frames> <frames_num> <video_class>" in annotations) The annotation usually includes train.txt and val.txt. 
 The format of *.txt file is like:
 ```
