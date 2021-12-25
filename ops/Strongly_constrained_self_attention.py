@@ -242,8 +242,8 @@ class SCSAttention(nn.Module):
         out3 = out[2:3, :, :, :, :].view(self.num_frames, self.chanel_in, self.width, self.height)
         out4 = out[3:4, :, :, :, :].view(self.num_frames, self.chanel_in, self.width, self.height)
         out = torch.cat([out1, out2, out3, out4], dim=0)  # [64,2048,7,7]
-        '''out = self.gamma * out  + temp'''
-        out = ((self.gamma*out+temp)*out)+temp
+        out = self.gamma * out  + temp
+        #out = ((self.gamma*out+temp)*out)+temp
 
         #print('self.gamma==',self.gamma)
         #print('before=',self.pos_embedV[:,0,:])
