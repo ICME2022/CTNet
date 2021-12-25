@@ -63,6 +63,8 @@ The code or our STTNet is built with following libraries:
  
  ```pip install decord```
 
+# We recommend that you train STTNet on 1 Tesla V100 GPU 😊
+
 
 ## Training
 ### HMDB51 and UCF101 Datasets
