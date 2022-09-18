@@ -11,6 +11,8 @@ Overview of Our RBRF Algorithm in Self-Supervised Spatial Representation Learnin
 ###### RBRC Algorithm
 #### \R-S-R\ops\Strongly_constrained_self_attention.py
 
+2022.3
+Our paper is accepted by ICME2022 as ORAL!
 
 # Data Preparation
 We have successfully trained STTNet on [HMDB51](https://serre-lab.clps.brown.edu/resource/hmdb-a-large-human-motion-database/), [UCF101](https://www.crcv.ucf.edu/data/UCF101.php), [Something-Something-V1](https://20bn.com/datasets/something-something/v1) with this codebase (Pre-trained Models are on https://drive.google.com/drive/folders/18JslcTMTrjXJPn-I7Dnof1GKj4J6cOE1).
